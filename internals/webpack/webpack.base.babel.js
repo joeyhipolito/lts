@@ -6,7 +6,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 const BUILD_FOLDER_PATH = process.env.BUILD_FOLDER_PATH || 'build';
-const PUBLIC_PATH = process.env.PUBLIC_PATH || './';
+const PUBLIC_PATH = process.env.PUBLIC_PATH || '/';
 
 module.exports = options => ({
   mode: options.mode,
@@ -24,7 +24,7 @@ module.exports = options => ({
     rules: [
       {
         test: /\.jsx?$/, // Transform all .js and .jsx files required somewhere with Babel
-        exclude: /node_modules/,
+        exclude: /node_modules[\\,/](?!(react-intl|intl-messageformat|intl-messageformat-parser)[\\,/]).*/,
         use: {
           loader: 'babel-loader',
         },
@@ -114,7 +114,7 @@ module.exports = options => ({
     // drop any unreachable code.
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development',
-      PUBLIC_PATH: './',
+      PUBLIC_PATH: '/',
     }),
   ]),
   resolve: {

@@ -1,0 +1,15 @@
+{
+  "name": "lild",
+  "template": "eu1",
+  "defaultLocale": "ch",
+  "locales": ["ch", "en"],
+  "pushId": "",
+  "pushFiles": [],
+  "gaToken": "",
+  "flow": "",
+  "data": "public/data.json",
+  "theme": {
+    "title": "Lidl",
+    "logo": "public/logo.png"
+  }
+}
